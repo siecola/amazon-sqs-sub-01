@@ -1,6 +1,5 @@
 package com.siecola.aws.sqs.subscriber.service;
 
-import com.siecola.aws.sqs.subscriber.publisher.NotificationComponent;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
@@ -14,9 +13,6 @@ public class MessageReceiverService {
 
     private Logger log = Logger.getLogger(MessageReceiverService.class);
 
-    @Autowired
-    private NotificationComponent notification;
-
     @JmsListener(destination = "test_queue.fifo")
     public void receiveMessageFIFO(TextMessage requestJSON) throws JMSException {
         log.info("Received from FIFO queue");
@@ -24,7 +20,6 @@ public class MessageReceiverService {
         log.info("Attribute prop1: " + requestJSON.getStringProperty("prop1"));
         log.info("Group ID: " + requestJSON.getStringProperty("JMSXGroupID"));
     }
-
 
     @JmsListener(destination = "test_queue")
     public void receiveMessage(TextMessage requestJSON) throws JMSException {
