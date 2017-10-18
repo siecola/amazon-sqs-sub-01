@@ -14,15 +14,12 @@ public class MessageReceiverService {
 
     private Logger log = Logger.getLogger(MessageReceiverService.class);
 
-    //@Autowired
-    //private ThumbnailCreatorComponent thumbnailCreator;
-
     @Autowired
     private NotificationComponent notification;
 
     @JmsListener(destination = "test_queue.fifo")
     public void receiveMessageFIFO(TextMessage requestJSON) throws JMSException {
-        log.info("Received from FIFO");
+        log.info("Received from FIFO queue");
         log.info("Request JSON message: " + requestJSON.getText());
         log.info("Attribute prop1: " + requestJSON.getStringProperty("prop1"));
         log.info("Group ID: " + requestJSON.getStringProperty("JMSXGroupID"));
@@ -31,7 +28,7 @@ public class MessageReceiverService {
 
     @JmsListener(destination = "test_queue")
     public void receiveMessage(TextMessage requestJSON) throws JMSException {
-        log.info("Received from Standard");
+        log.info("Received from standard queue");
         log.info("Request JSON message: " + requestJSON.getText());
         log.info("Attribute prop1: " + requestJSON.getStringProperty("prop1"));
         log.info("Group ID: " + requestJSON.getStringProperty("JMSXGroupID"));

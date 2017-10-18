@@ -20,6 +20,7 @@ public class JmsConfig {
     SQSConnectionFactory connectionFactory =
             SQSConnectionFactory.builder()
                     .withRegion(Region.getRegion(Regions.US_WEST_2))
+                    //Comment this line below to use AWS SQS
                     .withEndpoint("http://localhost:4576")
                     .withAWSCredentialsProvider(new DefaultAWSCredentialsProviderChain())
                     .build();
