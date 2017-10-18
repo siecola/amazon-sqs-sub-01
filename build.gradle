@@ -26,6 +26,6 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter')
 	compile group: 'org.springframework', name: 'spring-jms', version: '4.3.12.RELEASE'
 	compile group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.214'
-	compile group: 'com.amazonaws', name: 'amazon-sqs-java-messaging-lib', version: '1.0.0'
+	compile group: 'com.amazonaws', name: 'amazon-sqs-java-messaging-lib', version: '1.0.4'
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
