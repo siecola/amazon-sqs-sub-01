@@ -24,11 +24,11 @@ public class JmsConfig {
             new ProviderConfiguration(),
             AmazonSQSClientBuilder.standard()
                     //Uncomment this line to use AWS SQS
-                    //.withRegion(Regions.US_WEST_2)
+                    .withRegion(Regions.US_WEST_2)
                     //Comment this line to use AWS SQS
-                    .withEndpointConfiguration(
-                            new AwsClientBuilder.EndpointConfiguration("http://localhost:4576",
-                                    Regions.US_WEST_2.getName()))
+//                    .withEndpointConfiguration(
+//                            new AwsClientBuilder.EndpointConfiguration("http://localhost:4576",
+//                                    Regions.US_WEST_2.getName()))
                     .withCredentials(new DefaultAWSCredentialsProviderChain())
     );
 
